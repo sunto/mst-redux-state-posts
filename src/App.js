@@ -4,6 +4,8 @@ import "./App.css";
 
 import ReduxRootComponent from "./redux/components/reduxRootComponent";
 import MSTRootComponent from "./mst/components/mstRootComponent";
+import ApolloRootComponent from './apollo/components/apolloRootComponent';
+
 
 import { Row, Col, Button, Pager } from "react-bootstrap";
 
@@ -46,6 +48,16 @@ class App extends Component {
               >
                 Red Pill (MST)
               </Button>
+              <span className="spacer" />
+              <Button
+                onClick={() => {
+                  this.setState({ mode: "apollo" });
+                }}
+                bsStyle="primary"
+                bsSize="large"
+              >
+                Green Pill (Apollo)
+              </Button>
             </Pager>
           </Row>
         </Col>
@@ -59,6 +71,7 @@ class App extends Component {
         {this.state.mode == null && this._renderChoices()}
         {this.state.mode == "redux" && <ReduxRootComponent />}
         {this.state.mode == "mst" && <MSTRootComponent />}
+        {this.state.mode == "apollo" && <ApolloRootComponent />}
       </div>
     );
   }
